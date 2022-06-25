@@ -43,7 +43,7 @@ router.get('/logout',(req,res)=>{
 
 router.post('/',passport.authenticate('local',{
     successRedirect:'/login/bcl',
-    failureRedirect:'/'
+    failureRedirect:'/login'
 }))
 
 
