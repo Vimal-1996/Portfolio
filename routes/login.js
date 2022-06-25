@@ -73,6 +73,7 @@ router.post('/register',(req,res)=>{
 
 router.get('/edit/:id',checkAuthenticated,async(req,res)=>{
     console.log(req.params.id)
+    console.log("inside post edit method1")
     await user.findOne({_id:req.params.id},(err,results)=>{
         if(err){
             console.log(err)
@@ -90,7 +91,7 @@ router.post('/edit/:id',checkAuthenticated,async(req,res,next)=>{
         "contactnumber":req.body.contactnumber,
         "email":req.body.email
     }
-    console.log("inside post edit method")
+    
     await user.findOneAndUpdate({_id:req.params.id},newDetails,(err,results)=>{
         if(err){
           console.log(err)
