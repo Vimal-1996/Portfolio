@@ -81,7 +81,7 @@ router.get('/edit/:id',checkAuthenticated,async(req,res)=>{
             console.log(results)
             res.render('update',{title:"Update",list:results})
         }
-    })
+    }).clone().catch(function(err){ console.log(err)})
 })
 
 router.post('/edit/:id',checkAuthenticated,async(req,res,next)=>{
