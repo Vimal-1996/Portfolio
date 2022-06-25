@@ -90,7 +90,8 @@ router.post('/edit/:id',checkAuthenticated,async(req,res,next)=>{
         "contactnumber":req.body.contactnumber,
         "email":req.body.email
     }
-    await user.updateOne({_id:req.params.id},newDetails,(err,results)=>{
+    console.log("inside post edit method")
+    await user.findOneAndUpdate({_id:req.params.id},newDetails,(err,results)=>{
         if(err){
           console.log(err)
         }else{
