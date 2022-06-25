@@ -1,0 +1,47 @@
+<%- include partials/header -%>
+<!-- MAIN CONTENT -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h3><%=title%></h3>
+        <br>
+        <a href="/login/logout" class="btn btn-dark m-2 float-right">Logout</a>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>sl.no</th>
+                <th class="text-center">Contact Name</th>
+                <th class="text-center">Contact Number</th>
+                <th class="text-center">Email Address</th>
+                <th class="text-center">Edit</th>
+                <th class="text-center">Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- Template Row -->
+              <% for (let count = 0; count < list.length; count++) { %>
+              <tr>
+                <td><%= count+1 %></td>
+                <td class="text-center"><%= list[count].username %></td>
+                <td class="text-center"><%= list[count].contactnumber %></td>
+                <td class="text-center"><%= list[count].email %></td>
+                <td class="text-center">
+                  <a href="/login/edit/<%= list[count]._id %>" class="btn btn-primary btn-sm">Update</a>
+                  </td>
+                  <td class="text-center">
+                  <a href="/login/delete/<%= list[count]._id %>" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+         <div class="col-md-offset-1 col-md-10 text-center">
+          <ul class="pagination pagination-lg pager" id="myPager"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include partials/footer -%>
