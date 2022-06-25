@@ -99,7 +99,7 @@ router.post('/edit/:id',checkAuthenticated,async(req,res,next)=>{
             console.log(results)
             res.redirect('/login/bcl');
         }
-      })
+      }).clone().catch(function(err){ console.log(err)})
 })
 
 router.get('/delete/:id',checkAuthenticated,async(req,res,next)=>{
